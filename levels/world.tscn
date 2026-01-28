@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1ow8j1v6x6vh"]
+
+[ext_resource type="PackedScene" uid="uid://doeb6ble5cy2l" path="res://scenes/player.tscn" id="1_2mgkc"]
+[ext_resource type="Texture2D" uid="uid://boiwlbealqpeq" path="res://Free/Background/Brown.png" id="1_pmfem"]
+[ext_resource type="AudioStream" uid="uid://mntn4ccsbkst" path="res://Casual Game Vol 2/Track 1 (Let's Go).wav" id="2_tsgde"]
+[ext_resource type="Texture2D" uid="uid://cmnku88qwq6s" path="res://Free/Background/Blue.png" id="2_w32yo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tsgde"]
+size = Vector2(2756, 77)
+
+[node name="world" type="Node2D"]
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.2, 0.2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
+z_index = -1
+texture_filter = 1
+position = Vector2(27, 8)
+scale = Vector2(14.562499, 9.328125)
+texture = ExtResource("1_pmfem")
+centered = false
+
+[node name="Parallax2D2" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.4, 0.4)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D2"]
+z_index = -1
+texture_filter = 1
+position = Vector2(212.99998, 236.99998)
+scale = Vector2(7.9375005, 4.7656255)
+texture = ExtResource("2_w32yo")
+centered = false
+
+[node name="player" parent="." instance=ExtResource("1_2mgkc")]
+position = Vector2(203, 66)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(14, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(507, 314.5)
+shape = SubResource("RectangleShape2D_tsgde")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_tsgde")
+autoplay = true

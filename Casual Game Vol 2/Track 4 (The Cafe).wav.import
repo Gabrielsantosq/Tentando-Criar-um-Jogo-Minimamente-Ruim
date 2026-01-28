@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dvimq8td1sfiy"
+path="res://.godot/imported/Track 4 (The Cafe).wav-c0131415dd76142cfa154b3f56659244.sample"
+
+[deps]
+
+source_file="res://Casual Game Vol 2/Track 4 (The Cafe).wav"
+dest_files=["res://.godot/imported/Track 4 (The Cafe).wav-c0131415dd76142cfa154b3f56659244.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

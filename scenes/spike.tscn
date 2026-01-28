@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://brlknfscbrsf5"]
+
+[ext_resource type="Texture2D" uid="uid://dggcv668j15tt" path="res://Free/Traps/Spikes/Idle.png" id="1_ljd5v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mj4vg"]
+size = Vector2(15, 7)
+
+[node name="spike" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ljd5v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 4.5)
+shape = SubResource("RectangleShape2D_mj4vg")
