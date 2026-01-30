@@ -1,15 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://c1ow8j1v6x6vh"]
+[gd_scene load_steps=7 format=3 uid="uid://c1ow8j1v6x6vh"]
 
-[ext_resource type="PackedScene" uid="uid://doeb6ble5cy2l" path="res://scenes/player.tscn" id="1_2mgkc"]
-[ext_resource type="AudioStream" uid="uid://mntn4ccsbkst" path="res://Casual Game Vol 2/Track 1 (Let's Go).wav" id="2_tsgde"]
-[ext_resource type="Texture2D" uid="uid://bsefw10076cc3" path="res://PNG/trees.png" id="3_pmfem"]
-[ext_resource type="Texture2D" uid="uid://dbcxyvbblqymm" path="res://PNG/sky.png" id="3_w32yo"]
+[ext_resource type="Texture2D" uid="uid://dbcxyvbblqymm" path="res://PNG/sky.png" id="1_21dob"]
+[ext_resource type="Texture2D" uid="uid://bsefw10076cc3" path="res://PNG/trees.png" id="2_jqneo"]
+[ext_resource type="PackedScene" uid="uid://doeb6ble5cy2l" path="res://scenes/player.tscn" id="3_byeqp"]
+[ext_resource type="AudioStream" uid="uid://mntn4ccsbkst" path="res://Casual Game Vol 2/Track 1 (Let's Go).wav" id="4_lm4ka"]
+[ext_resource type="PackedScene" uid="uid://b88ckl6j1qdfm" path="res://scenes/next_level.tscn" id="5_jqneo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tsgde"]
 size = Vector2(2756, 77)
 
-[node name="world" type="Node2D"]
-position = Vector2(-4, 0)
+[node name="world1" type="Node2D"]
 
 [node name="ParallaxBackground" type="Node2D" parent="."]
 
@@ -19,9 +19,10 @@ repeat_size = Vector2(576, 160)
 repeat_times = 2
 
 [node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer2"]
+modulate = Color(0, 0, 0, 1)
 offset_right = 576.0
 offset_bottom = 200.0
-texture = ExtResource("3_w32yo")
+texture = ExtResource("1_21dob")
 
 [node name="ParallaxLayer" type="Parallax2D" parent="ParallaxBackground"]
 modulate = Color(0.56, 0.56, 0.56, 1)
@@ -33,11 +34,11 @@ repeat_times = 2
 [node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
 offset_right = 576.0
 offset_bottom = 400.0
-texture = ExtResource("3_pmfem")
+texture = ExtResource("2_jqneo")
 
 [node name="ParallaxLayer3" type="Parallax2D" parent="ParallaxBackground"]
 scroll_scale = Vector2(0.6, 0.6)
-scroll_offset = Vector2(900, 160)
+scroll_offset = Vector2(-4, 131)
 repeat_size = Vector2(576, 0)
 repeat_times = 2
 
@@ -45,9 +46,9 @@ repeat_times = 2
 offset_left = -4.0
 offset_right = 572.0
 offset_bottom = 400.0
-texture = ExtResource("3_pmfem")
+texture = ExtResource("2_jqneo")
 
-[node name="player" parent="." instance=ExtResource("1_2mgkc")]
+[node name="player" parent="." instance=ExtResource("3_byeqp")]
 position = Vector2(203, 66)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -58,5 +59,8 @@ position = Vector2(507, 314.5)
 shape = SubResource("RectangleShape2D_tsgde")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_tsgde")
+stream = ExtResource("4_lm4ka")
 autoplay = true
+
+[node name="NextLevel" parent="." instance=ExtResource("5_jqneo")]
+position = Vector2(675, 382)

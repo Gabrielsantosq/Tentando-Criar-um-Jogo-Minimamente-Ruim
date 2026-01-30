@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b88ckl6j1qdfm"]
+
+[ext_resource type="Script" uid="uid://bpp76v2x4vai5" path="res://scenes/next_level.gd" id="1_rf0ph"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v4186"]
+
+[node name="NextLevel" type="Area2D"]
+modulate = Color(0, 0, 0, 1)
+script = ExtResource("1_rf0ph")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_v4186")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3 uid="uid://ccvgr4tcl0ar6"]
+
+[ext_resource type="Texture2D" uid="uid://dbcxyvbblqymm" path="res://PNG/sky.png" id="1_7tf5k"]
+[ext_resource type="Texture2D" uid="uid://bsefw10076cc3" path="res://PNG/trees.png" id="2_yeiia"]
+[ext_resource type="PackedScene" uid="uid://doeb6ble5cy2l" path="res://scenes/player.tscn" id="3_oygn7"]
+[ext_resource type="AudioStream" uid="uid://mntn4ccsbkst" path="res://Casual Game Vol 2/Track 1 (Let's Go).wav" id="4_oku0j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tsgde"]
+size = Vector2(2756, 77)
+
+[node name="world3" type="Node2D"]
+
+[node name="ParallaxBackground" type="Node2D" parent="."]
+
+[node name="ParallaxLayer2" type="Parallax2D" parent="ParallaxBackground"]
+scroll_scale = Vector2(0.1, 0.1)
+repeat_size = Vector2(576, 160)
+repeat_times = 2
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer2"]
+modulate = Color(1, 0, 0, 1)
+offset_right = 576.0
+offset_bottom = 200.0
+texture = ExtResource("1_7tf5k")
+
+[node name="ParallaxLayer" type="Parallax2D" parent="ParallaxBackground"]
+modulate = Color(0.56, 0.56, 0.56, 1)
+scroll_scale = Vector2(0.2, 0.2)
+scroll_offset = Vector2(-4, 26)
+repeat_size = Vector2(576, 0)
+repeat_times = 2
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
+offset_right = 576.0
+offset_bottom = 400.0
+texture = ExtResource("2_yeiia")
+
+[node name="ParallaxLayer3" type="Parallax2D" parent="ParallaxBackground"]
+scroll_scale = Vector2(0.6, 0.6)
+scroll_offset = Vector2(-4, 131)
+repeat_size = Vector2(576, 0)
+repeat_times = 2
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer3"]
+offset_left = -4.0
+offset_right = 572.0
+offset_bottom = 400.0
+texture = ExtResource("2_yeiia")
+
+[node name="player" parent="." instance=ExtResource("3_oygn7")]
+position = Vector2(203, 66)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(14, 131)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(507, 314.5)
+shape = SubResource("RectangleShape2D_tsgde")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_oku0j")
+autoplay = true
