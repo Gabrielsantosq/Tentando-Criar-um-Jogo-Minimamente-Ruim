@@ -1,42 +1,57 @@
 [gd_scene load_steps=6 format=3 uid="uid://c1ow8j1v6x6vh"]
 
 [ext_resource type="PackedScene" uid="uid://doeb6ble5cy2l" path="res://scenes/player.tscn" id="1_2mgkc"]
-[ext_resource type="Texture2D" uid="uid://boiwlbealqpeq" path="res://Free/Background/Brown.png" id="1_pmfem"]
 [ext_resource type="AudioStream" uid="uid://mntn4ccsbkst" path="res://Casual Game Vol 2/Track 1 (Let's Go).wav" id="2_tsgde"]
-[ext_resource type="Texture2D" uid="uid://cmnku88qwq6s" path="res://Free/Background/Blue.png" id="2_w32yo"]
+[ext_resource type="Texture2D" uid="uid://bsefw10076cc3" path="res://PNG/trees.png" id="3_pmfem"]
+[ext_resource type="Texture2D" uid="uid://dbcxyvbblqymm" path="res://PNG/sky.png" id="3_w32yo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tsgde"]
 size = Vector2(2756, 77)
 
 [node name="world" type="Node2D"]
+position = Vector2(-4, 0)
 
-[node name="Parallax2D" type="Parallax2D" parent="."]
+[node name="ParallaxBackground" type="Node2D" parent="."]
+
+[node name="ParallaxLayer2" type="Parallax2D" parent="ParallaxBackground"]
+scroll_scale = Vector2(0.1, 0.1)
+repeat_size = Vector2(576, 160)
+repeat_times = 2
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer2"]
+offset_right = 576.0
+offset_bottom = 200.0
+texture = ExtResource("3_w32yo")
+
+[node name="ParallaxLayer" type="Parallax2D" parent="ParallaxBackground"]
+modulate = Color(0.56, 0.56, 0.56, 1)
 scroll_scale = Vector2(0.2, 0.2)
+scroll_offset = Vector2(-4, 26)
+repeat_size = Vector2(576, 0)
+repeat_times = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
-z_index = -1
-texture_filter = 1
-position = Vector2(27, 8)
-scale = Vector2(14.562499, 9.328125)
-texture = ExtResource("1_pmfem")
-centered = false
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
+offset_right = 576.0
+offset_bottom = 400.0
+texture = ExtResource("3_pmfem")
 
-[node name="Parallax2D2" type="Parallax2D" parent="."]
-scroll_scale = Vector2(0.4, 0.4)
+[node name="ParallaxLayer3" type="Parallax2D" parent="ParallaxBackground"]
+scroll_scale = Vector2(0.6, 0.6)
+scroll_offset = Vector2(900, 160)
+repeat_size = Vector2(576, 0)
+repeat_times = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="Parallax2D2"]
-z_index = -1
-texture_filter = 1
-position = Vector2(212.99998, 236.99998)
-scale = Vector2(7.9375005, 4.7656255)
-texture = ExtResource("2_w32yo")
-centered = false
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer3"]
+offset_left = -4.0
+offset_right = 572.0
+offset_bottom = 400.0
+texture = ExtResource("3_pmfem")
 
 [node name="player" parent="." instance=ExtResource("1_2mgkc")]
 position = Vector2(203, 66)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(14, 3)
+position = Vector2(14, 131)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(507, 314.5)
