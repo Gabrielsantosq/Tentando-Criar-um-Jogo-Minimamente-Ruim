@@ -19,6 +19,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	change_animation()
 	flip_player()
+	
+	
 func gravity_force(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
